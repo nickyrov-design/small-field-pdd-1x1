@@ -1,0 +1,10 @@
+detector,criterion,pass_rate_%,mean_gamma,max_gamma,n_eval_points
+microDiamond,1%/1mm,98.8,0.305,2.0,251
+microDiamond,2%/2mm,99.2,0.166,2.0,251
+microDiamond,3%/3mm,99.2,0.119,2.0,251
+PinPoint,1%/1mm,72.1,0.738,2.0,251
+PinPoint,2%/2mm,99.6,0.374,2.0,251
+PinPoint,3%/3mm,99.6,0.254,2.0,251
+Semiflex,1%/1mm,25.9,1.231,2.0,251
+Semiflex,2%/2mm,98.0,0.626,2.0,251
+Semiflex,3%/3mm,99.2,0.422,2.0,251

@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this analysis code, please cite the associated article and this software."
+title: "Evaluation of detector response characteristics on percentage depth dose measurements for a 1 x 1 cm2 field compared with Monaco TPS"
+abstract: >-
+  Analysis code accompanying the medical-physics research paper. The scripts
+  extract and combine 1 x 1 cm2 6 MV percentage depth dose (PDD) data for three
+  detectors (PTW microDiamond, PinPoint 3D, Semiflex 3D), compare them with the
+  Monaco treatment planning system, regenerate the untruncated deviation
+  figures, and perform PyMedPhys 1D gamma analysis (1%/1mm, 2%/2mm, 3%/3mm).
+type: software
+version: "1.0.0"
+date-released: "2026-06-08"
+license: MIT
+authors:
+  - family-names: "Ntombela"
+    given-names: "L. N."
+  - family-names: "Rovetto"
+    given-names: "N. J."
+  - family-names: "Mohlafase"
+    given-names: "L."
+  - family-names: "Shivambu"
+    given-names: "G. I."
+keywords:
+  - "medical physics"
+  - "percentage depth dose"
+  - "small field dosimetry"
+  - "gamma analysis"
+  - "Monaco TPS"
+  - "PyMedPhys"
+repository-code: "https://github.com/USERNAME/small-field-pdd-1x1"
