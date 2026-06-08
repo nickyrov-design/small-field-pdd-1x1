@@ -1,5 +1,7 @@
 # small-field-pdd-1x1
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20595530.svg)](https://doi.org/10.5281/zenodo.20595530)
+
 Reproducible analysis code for the medical-physics paper *"Evaluation of detector
 response characteristics on percentage depth dose measurements for a 1 x 1 cm²
 field compared with Monaco TPS."*
@@ -126,3 +128,11 @@ Released under the MIT License — see [LICENSE](LICENSE).
 
 If you use this code, please cite the associated article and this software.
 Citation metadata is provided in [CITATION.cff](CITATION.cff).
+
+This software is archived on Zenodo with the concept DOI
+[10.5281/zenodo.20595530](https://doi.org/10.5281/zenodo.20595530) (resolves to
+the latest version):
+
+> Ntombela LN, Rovetto NJ, Mohlafase L, Shivambu GI. *small-field-pdd-1x1:
+> Reproducible analysis code for 1 × 1 cm² small-field PDD detector comparison.*
+> Zenodo. https://doi.org/10.5281/zenodo.20595530
