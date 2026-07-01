@@ -1,3 +1,5 @@
+# Analysis environment for small-field-pdd-1x1
+# Python 3.14.3 (see .python-version); install with: pip install -r requirements.txt
 numpy==2.4.6
 scipy==1.17.1
 pandas==3.0.3

@@ -2,9 +2,9 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20595530.svg)](https://doi.org/10.5281/zenodo.20595530)
 
-Reproducible analysis code for the medical-physics paper *"Evaluation of detector
-response characteristics on percentage depth dose measurements for a 1 x 1 cm²
-field compared with Monaco TPS."*
+Reproducible analysis code for the medical-physics paper *"Comparison of
+Percentage Depth Dose Measurements Obtained with Three Detector Technologies and
+Monaco TPS Calculations in a 1 × 1 cm² Small Photon Field."*
 
 This repository extracts and combines 1 x 1 cm² 6 MV percentage depth dose (PDD)
 measurements from three detectors — PTW microDiamond, PinPoint 3D, and Semiflex
@@ -29,7 +29,9 @@ small-field-pdd-1x1/
 │   └── figures/             Figure1-6 PNGs
 ├── data/                    Place raw input .xlsx here (not committed)
 ├── METHODS_AND_RESULTS.md   Methods / results summary
-├── requirements.txt
+├── requirements.txt         Pinned pip dependencies
+├── environment.yml          Equivalent conda environment
+├── .python-version          Python interpreter version (3.14.3)
 ├── CITATION.cff
 ├── LICENSE
 └── README.md
@@ -37,13 +39,24 @@ small-field-pdd-1x1/
 
 ## Requirements
 
-Python 3.14 with the pinned packages in `requirements.txt`:
+The analysis was performed and verified with **Python 3.14.3** and the exact
+package versions pinned in [`requirements.txt`](requirements.txt) (numpy 2.4.6,
+scipy 1.17.1, pandas 3.0.3, matplotlib 3.10.9, openpyxl 3.1.5, pymedphys 0.40.0).
+The scripts execute without modification against this environment.
+
+Using pip (Python version is set in [`.python-version`](.python-version)):
 
 ```
 pip install -r requirements.txt
 ```
 
-(numpy, scipy, pandas, matplotlib, openpyxl, pymedphys)
+Or create the equivalent conda environment from
+[`environment.yml`](environment.yml):
+
+```
+conda env create -f environment.yml
+conda activate small-field-pdd-1x1
+```
 
 ## Data setup
 

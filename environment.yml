@@ -1,0 +1,16 @@
+# Conda environment equivalent to requirements.txt for small-field-pdd-1x1.
+# Create with: conda env create -f environment.yml
+# pymedphys is installed via pip (not consistently packaged on conda-forge).
+name: small-field-pdd-1x1
+channels:
+  - conda-forge
+dependencies:
+  - python=3.14.3
+  - numpy=2.4.6
+  - scipy=1.17.1
+  - pandas=3.0.3
+  - matplotlib=3.10.9
+  - openpyxl=3.1.5
+  - pip
+  - pip:
+      - pymedphys==0.40.0
