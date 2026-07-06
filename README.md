@@ -146,6 +146,12 @@ This software is archived on Zenodo with the concept DOI
 [10.5281/zenodo.20595530](https://doi.org/10.5281/zenodo.20595530) (resolves to
 the latest version):
 
-> Ntombela LN, Rovetto NJ, Mohlafase L, Shivambu GI. *small-field-pdd-1x1:
+> Ntombela LN, Rovetto NJ, Shivambu GI. *small-field-pdd-1x1:
 > Reproducible analysis code for 1 × 1 cm² small-field PDD detector comparison.*
 > Zenodo. https://doi.org/10.5281/zenodo.20595530
+
+## Acknowledgements
+
+L. Mohlafase assisted with the experimental data collection. This is a
+contributor (data-collection) role and does not constitute authorship of the
+software or the associated article.

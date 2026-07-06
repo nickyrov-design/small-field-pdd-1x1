@@ -1,0 +1,14 @@
+{
+  "title": "Comparison of Percentage Depth Dose Measurements Obtained with Three Detector Technologies and Monaco TPS Calculations in a 1 × 1 cm² Small Photon Field",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    { "name": "Ntombela, L. N." },
+    { "name": "Rovetto, N. J." },
+    { "name": "Shivambu, G. I." }
+  ],
+  "contributors": [
+    { "name": "Mohlafase, L.", "type": "DataCollector" }
+  ],
+  "description": "Analysis code accompanying the medical-physics research paper. The scripts extract and combine 1 x 1 cm2 6 MV percentage depth dose (PDD) data for three detectors (PTW microDiamond, PinPoint 3D, Semiflex 3D), compare them with the Monaco treatment planning system, regenerate the untruncated deviation figures, and perform PyMedPhys 1D gamma analysis (1%/1mm, 2%/2mm, 3%/3mm). L. Mohlafase contributed to the experimental data collection (DataCollector), not to authorship of the software or the associated article."
+}
