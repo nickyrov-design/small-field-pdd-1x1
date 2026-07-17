@@ -101,10 +101,13 @@ Each script writes into the top-level `output/` folder:
   `dmax_summary`, `README`) and `output/PDD_1x1_combined.csv`. Combines raw and
   dmax-normalised PDDs for the TPS and all three detectors with per-detector
   percentage deviation.
-- **`make_figures.py`** — `output/figures/Figure1_microDiamond.png`,
-  `Figure2_Semiflex.png`, `Figure3_PinPoint.png`, and `Figure4_overlay.png`:
-  untruncated deviation plots with vertical dmax markers and a post-build-up
-  (15-250 mm) inset.
+- **`make_figures.py`** — `output/figures/Figure1_panels_ABCD.png`: the
+  consolidated multi-panel figure published as Figure 1 — (A) microDiamond,
+  (B) Semiflex 3D, (C) PinPoint 3D, (D) all three overlaid, on common axes with
+  an untruncated y-range and post-build-up (15-250 mm) insets. Also writes the
+  individual per-detector plots it supersedes (`Figure1_microDiamond.png`,
+  `Figure2_Semiflex.png`, `Figure3_PinPoint.png`, `Figure4_overlay.png`), each
+  with vertical dmax markers and a post-build-up inset.
 - **`gamma_analysis.py`** — `output/gamma_summary.csv`, a `gamma_results` sheet
   appended to `PDD_1x1_combined.xlsx`, and `output/figures/Figure5_gamma_histograms.png`
   and `Figure6_gamma_vs_depth.png`. Runs PyMedPhys 1D gamma at 1%/1 mm, 2%/2 mm,

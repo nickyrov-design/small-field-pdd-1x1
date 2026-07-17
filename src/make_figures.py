@@ -108,8 +108,82 @@ def overlay_figure(data, fname):
     print("Wrote", p)
 
 
+def panel_figure(data, fname):
+    """Consolidated 2x2 multi-panel version of Figures 1-4 (panels A-D).
+
+    Panels A-C: TPS vs each detector. Panel D: all three overlaid.
+    Each panel keeps the full (untruncated) y-axis so the surface/build-up
+    deviations remain visible, with an inset zoomed to the post-build-up region.
+    """
+    grid = np.arange(0, MAX_DEPTH + 1, dtype=float)
+    mc_dmax = data["mc"]["dmax"][1]
+    singles = [("microDiamond", "A"), ("Semiflex", "B"), ("PinPoint", "C")]
+
+    # Common axes across all panels so the detectors can be compared directly.
+    YLIM_MAIN = (-25, 115)
+    YLIM_INSET = (-4, 9)
+
+    fig, axes = plt.subplots(2, 2, figsize=(13.5, 9))
+    axes = axes.ravel()
+
+    for ax, (key, letter) in zip(axes[:3], singles):
+        dev = get_dev(data, key, grid)
+        det_dmax = data["det"][key]["dmax"][1]
+        ax.plot(grid, dev, color=COLORS[key], lw=1.1, label=key)
+        ax.axhline(0, color="k", lw=0.6)
+        ax.axvline(mc_dmax, color="0.4", ls="--", lw=1, label=f"TPS dmax ({mc_dmax:.1f} mm)")
+        ax.axvline(det_dmax, color="0.7", ls=":", lw=1, label=f"det. dmax ({det_dmax:.1f} mm)")
+        ax.set_xlim(0, MAX_DEPTH)
+        ax.set_ylim(*YLIM_MAIN)
+        ax.set_title(f"({letter}) TPS versus {key}", fontsize=11, loc="left")
+        ax.grid(True, alpha=0.3)
+        ax.legend(loc="upper right", fontsize=7)
+        axin = inset_axes(ax, width="52%", height="38%", loc="center right", borderpad=1.1)
+        m = grid >= 15
+        axin.plot(grid[m], dev[m], color=COLORS[key], lw=0.9)
+        axin.axhline(0, color="k", lw=0.5)
+        axin.set_xlim(15, MAX_DEPTH)
+        axin.set_ylim(*YLIM_INSET)
+        axin.grid(True, alpha=0.3)
+        axin.set_title("post-build-up detail (15-250 mm)", fontsize=6)
+        axin.tick_params(labelsize=6)
+
+    # Panel D: overlay
+    ax = axes[3]
+    for key in ["Semiflex", "PinPoint", "microDiamond"]:
+        ax.plot(grid, get_dev(data, key, grid), color=COLORS[key], lw=1.1, label=key)
+    ax.axhline(0, color="k", lw=0.6)
+    ax.axvline(mc_dmax, color="0.4", ls="--", lw=1, label=f"TPS dmax ({mc_dmax:.1f} mm)")
+    ax.set_xlim(0, MAX_DEPTH)
+    ax.set_ylim(*YLIM_MAIN)
+    ax.set_title("(D) TPS versus all three detectors", fontsize=11, loc="left")
+    ax.grid(True, alpha=0.3)
+    ax.legend(loc="upper right", fontsize=7)
+    axin = inset_axes(ax, width="52%", height="38%", loc="center right", borderpad=1.1)
+    m = grid >= 15
+    for key in ["Semiflex", "PinPoint", "microDiamond"]:
+        axin.plot(grid[m], get_dev(data, key, grid)[m], color=COLORS[key], lw=0.9)
+    axin.axhline(0, color="k", lw=0.5)
+    axin.set_xlim(15, MAX_DEPTH)
+    axin.set_ylim(*YLIM_INSET)
+    axin.grid(True, alpha=0.3)
+    axin.set_title("post-build-up detail (15-250 mm)", fontsize=6)
+    axin.tick_params(labelsize=6)
+
+    for ax in axes:
+        ax.set_xlabel("Depth (mm)")
+        ax.set_ylabel("Percentage Deviation (%)")
+
+    fig.tight_layout()
+    p = os.path.join(OUT, fname)
+    fig.savefig(p, dpi=200)
+    plt.close(fig)
+    print("Wrote", p)
+
+
 def main():
     data = C.load_all(max_depth=MAX_DEPTH)
+    panel_figure(data, "Figure1_panels_ABCD.png")
     single_figure(data, "microDiamond", "TPS versus microDiamond - 1x1 Field Size", "Figure1_microDiamond.png")
     single_figure(data, "Semiflex",     "TPS versus Semiflex - 1x1 Field Size",     "Figure2_Semiflex.png")
     single_figure(data, "PinPoint",     "TPS versus PinPoint - 1x1 Field Size",     "Figure3_PinPoint.png")
